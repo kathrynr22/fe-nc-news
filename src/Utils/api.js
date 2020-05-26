@@ -26,11 +26,12 @@ export const getComments = (article_id) => {
     });
 };
 
-export const getArticles = (topic) => {
+export const getArticles = (topic, sort_by) => {
   return axios
     .get("https://kathryn-nc-news.herokuapp.com/api/articles", {
       params: {
         topic: topic,
+        sort_by: sort_by,
       },
     })
     .then(({ data: { allArticles } }) => {

@@ -37,8 +37,9 @@ class ArticlesList extends Component {
   }
 
   getArticles = () => {
-    const { topic } = this.props;
-    api.getArticles(topic).then((allArticles) => {
+    const topic = this.props.topic;
+    const sort_by = this.state.sort;
+    api.getArticles(topic, sort_by).then((allArticles) => {
       this.setState({ allArticles, isLoading: false });
     });
   };
@@ -51,6 +52,7 @@ class ArticlesList extends Component {
   };
 
   handleSort = (event) => {
+    console.log("inside handle sort");
     console.log(event.target.value);
     this.setState({ sort: event.target.value });
   };
