@@ -10,6 +10,10 @@ const SortButton = (props) => {
         <option value="created_at">Date</option>
         <option value="comment_count">Number of Comments</option>
         <option value="votes">Votes</option>
+        <option value="topic">Topic</option>
+        <option value="author">Author</option>
+        <option value="title">Title</option>
+        <option value="article_id">Article_id</option>
       </select>
     </div>
   );

@@ -12,9 +12,8 @@ const ArticleCard = ({
 }) => {
   return (
     <article>
-      <h2>
-        {title} {topic}
-      </h2>
+      <h2>{title}</h2>
+      <h2>{topic}</h2>
       <h3>
         {" "}
         by {author} published{created_at}
