@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Loader from "./Loader";
+import CommentsList from "./CommentsList";
 import * as api from "../Utils/api";
 
 class ArticleById extends Component {
@@ -32,6 +33,7 @@ class ArticleById extends Component {
         <h3>
           Vote Count: {votes} Comment Count: {comment_count}
         </h3>
+        <CommentsList article_id={this.props.article_id} />
       </article>
     );
   }
@@ -40,17 +42,6 @@ class ArticleById extends Component {
     this.getArticleById();
   }
 
-  // getArticleById = () => {
-
-  //   const article_id = this.props.article_id;
-  //   axios
-  //     .get(`https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}`)
-  //     .then(({ data: { articleById } }) => {
-
-  //       this.setState({ articleById, isLoading: false });
-  //     });
-  // };
-
   getArticleById = () => {
     const article_id = this.props.article_id;
     api.getArticleById(article_id).then((articleById) => {
@@ -58,11 +49,5 @@ class ArticleById extends Component {
     });
   };
 }
-
-// getTopics = () => {
-//   api.getTopics().then((topics) => {
-//     this.setState({ topics });
-//   });
-// };
 
 export default ArticleById;
