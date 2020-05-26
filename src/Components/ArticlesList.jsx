@@ -26,9 +26,21 @@ class ArticlesList extends Component {
     this.getArticles();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log("updated");
+    if (prevProps.topic !== this.props.topic) {
+      this.getArticles();
+    }
+  }
+
   getArticles = () => {
+    const { topic } = this.props;
     axios
-      .get("https://kathryn-nc-news.herokuapp.com/api/articles")
+      .get("https://kathryn-nc-news.herokuapp.com/api/articles", {
+        params: {
+          topic: topic,
+        },
+      })
       .then(({ data: { allArticles } }) => {
         //.then((response) => {
         // console.log(response.data);
