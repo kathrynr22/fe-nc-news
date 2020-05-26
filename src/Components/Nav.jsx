@@ -3,36 +3,35 @@ import { Link } from "@reach/router";
 import * as api from "../Utils/api";
 
 class Nav extends Component {
+  //how can i best do this for users as well
+
   state = {
     topics: [],
   };
   render() {
     return (
-      <ul>
-        {this.state.topics.map((topic) => {
-          return (
-            <li key={topic.slug}>
-              <Link to={topic.slug}>
-                {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          {this.state.topics.map(({ slug, description, topic_slug }) => {
+            return (
+              <li key={slug}>
+                <Link to={`topics/${topic_slug}`}>
+                  {slug.charAt(0).toUpperCase() + slug.slice(1)}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     );
   }
 
   componentDidMount() {
     this.getTopics();
   }
-
-  // getTopics = () => {
-  //   axios
-  //     .get("https://kathryn-nc-news.herokuapp.com/api/topics")
-  //     .then(({ data: { topics } }) => {
-  //       this.setState({ topics });
-  //     });
-  // };
 
   getTopics = () => {
     api.getTopics().then((topics) => {
