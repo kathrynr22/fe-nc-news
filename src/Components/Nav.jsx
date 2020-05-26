@@ -1,28 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
+import * as api from "../Utils/api";
 
 class Nav extends Component {
   state = {
-    topics: [
-      {
-        slug: "coding",
-        description: "Code is love, code is life",
-      },
-      {
-        slug: "football",
-        description: "FOOTIE!",
-      },
-      {
-        slug: "cooking",
-        description: "Hey good looking, what you got cooking?",
-      },
-    ],
+    topics: [],
   };
   render() {
     return (
       <ul>
         {this.state.topics.map((topic) => {
-          //topic.slug.charAt(0).toUpperCase();
           return (
             <li key={topic.slug}>
               <Link to={topic.slug}>
@@ -34,6 +21,24 @@ class Nav extends Component {
       </ul>
     );
   }
+
+  componentDidMount() {
+    this.getTopics();
+  }
+
+  // getTopics = () => {
+  //   axios
+  //     .get("https://kathryn-nc-news.herokuapp.com/api/topics")
+  //     .then(({ data: { topics } }) => {
+  //       this.setState({ topics });
+  //     });
+  // };
+
+  getTopics = () => {
+    api.getTopics().then((topics) => {
+      this.setState({ topics });
+    });
+  };
 }
 
 export default Nav;
