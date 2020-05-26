@@ -15,11 +15,12 @@ class Nav extends Component {
           <li>
             <Link to="/">Home</Link>
           </li>
-          {this.state.topics.map(({ slug, description, topic_slug }) => {
+          {this.state.topics.map((topic) => {
+            console.log(topic);
             return (
-              <li key={slug}>
-                <Link to={`topics/${topic_slug}`}>
-                  {slug.charAt(0).toUpperCase() + slug.slice(1)}
+              <li key={topic.slug}>
+                <Link to={`articles/topic/${topic.slug}`}>
+                  {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
                 </Link>
               </li>
             );

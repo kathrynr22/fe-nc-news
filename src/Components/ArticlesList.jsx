@@ -31,10 +31,16 @@ class ArticlesList extends Component {
   }
 
   getArticles = () => {
+    const { topic } = this.props;
     axios
-      .get("https://kathryn-nc-news.herokuapp.com/api/articles")
+      .get("https://kathryn-nc-news.herokuapp.com/api/articles/topic", {
+        params: {
+          topic: topic, //articles?topic=${topic}
+        },
+      })
       .then(({ data: { allArticles } }) => {
-        //console.log(response.data);
+        // .then((response) => {
+        // console.log(response.data);
         this.setState({ allArticles, isLoading: false });
       });
   };

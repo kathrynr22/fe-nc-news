@@ -15,7 +15,7 @@ class App extends Component {
         <Header user={this.state.user} />
         <Nav />
         <ArticlesList path="/" />
-        <ArticlesList path="/articles/topic/:topic_slug" />
+        <ArticlesList path="/articles/topic/:topic" />
         <Footer />
       </div>
     );
