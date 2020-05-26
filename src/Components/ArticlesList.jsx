@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ArticleCard from "./ArticleCard";
-import axios from "axios";
+import * as api from "../Utils/api";
 import Loader from "./Loader";
 import SortButton from "./SortButton";
 
@@ -8,6 +8,7 @@ class ArticlesList extends Component {
   state = {
     allArticles: [],
     isLoading: true,
+    sort: "created_at",
   };
   render() {
     console.log(this.props);
@@ -37,35 +38,22 @@ class ArticlesList extends Component {
 
   getArticles = () => {
     const { topic } = this.props;
-    axios
-      .get("https://kathryn-nc-news.herokuapp.com/api/articles", {
-        params: {
-          topic: topic,
-        },
-      })
-      .then(({ data: { allArticles } }) => {
-        //.then((response) => {
-        // console.log(response.data);
-        this.setState({ allArticles, isLoading: false });
-      });
+    api.getArticles(topic).then((allArticles) => {
+      this.setState({ allArticles, isLoading: false });
+    });
+  };
+
+  getArticleById = () => {
+    const article_id = this.props.article_id;
+    api.getArticleById(article_id).then((articleById) => {
+      this.setState({ articleById, isLoading: false });
+    });
+  };
+
+  handleSort = (event) => {
+    console.log(event.target.value);
+    this.setState({ sort: event.target.value });
   };
 }
-
-// getArticles = () => {
-//   const { topic } = this.props;
-//   //console.log("inside get articles");
-//   // console.log(this.props);
-//   axios
-//     .get("https://kathryn-nc-news.herokuapp.com/api/articles/topic/", {
-//       params: {
-//         topic: topic, //articles?topic=${topic}
-//       },
-//     })
-//     .then(({ data: { allArticles } }) => {
-//       // .then((response) => {
-//       // console.log(response.data);
-//       this.setState({ allArticles, isLoading: false });
-//     });
-// };
 
 export default ArticlesList;

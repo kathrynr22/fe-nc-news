@@ -7,8 +7,9 @@ const SortButton = (props) => {
         <option disabled value="Sort">
           Sort
         </option>
-        <option value="Newest">Newest</option>
-        <option value="Oldest">Oldest</option>
+        <option value="created_at">Date</option>
+        <option value="comment_count">Number of Comments</option>
+        <option value="votes">Votes</option>
       </select>
     </div>
   );
