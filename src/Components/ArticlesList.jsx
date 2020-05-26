@@ -25,13 +25,23 @@ class ArticlesList extends Component {
     );
   }
 
+  handleSort = (event) => {
+    console.log("inside handle sort");
+    console.log(event.target.value);
+    this.setState({ sort: event.target.value });
+  };
+
   componentDidMount() {
     this.getArticles();
   }
 
   componentDidUpdate(prevProps, prevState) {
     console.log("updated");
-    if (prevProps.topic !== this.props.topic) {
+    //prevState.sort !== this.state.sort
+    if (
+      prevProps.topic !== this.props.topic ||
+      prevState.sort !== this.state.sort
+    ) {
       this.getArticles();
     }
   }
@@ -39,6 +49,8 @@ class ArticlesList extends Component {
   getArticles = () => {
     const topic = this.props.topic;
     const sort_by = this.state.sort;
+    console.log("inside getarticles");
+    console.log(sort_by);
     api.getArticles(topic, sort_by).then((allArticles) => {
       this.setState({ allArticles, isLoading: false });
     });
@@ -49,12 +61,6 @@ class ArticlesList extends Component {
     api.getArticleById(article_id).then((articleById) => {
       this.setState({ articleById, isLoading: false });
     });
-  };
-
-  handleSort = (event) => {
-    console.log("inside handle sort");
-    console.log(event.target.value);
-    this.setState({ sort: event.target.value });
   };
 }
 
