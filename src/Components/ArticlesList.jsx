@@ -32,8 +32,10 @@ class ArticlesList extends Component {
 
   getArticles = () => {
     const { topic } = this.props;
+    console.log("inside get articles");
+    console.log(this.props);
     axios
-      .get("https://kathryn-nc-news.herokuapp.com/api/articles/topic", {
+      .get("https://kathryn-nc-news.herokuapp.com/api/articles/topic/", {
         params: {
           topic: topic, //articles?topic=${topic}
         },

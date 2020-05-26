@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import Nav from "./Components/Nav";
 import ArticlesList from "./Components/ArticlesList";
+import { Router } from "@reach/router";
 import "./App.css";
 
 class App extends Component {
@@ -14,8 +15,10 @@ class App extends Component {
       <div>
         <Header user={this.state.user} />
         <Nav />
-        <ArticlesList path="/" />
-        <ArticlesList path="/articles/topic/:topic" />
+        <Router>
+          <ArticlesList path="/" />
+          <ArticlesList path="/articles/topic/:topic" />
+        </Router>
         <Footer />
       </div>
     );
