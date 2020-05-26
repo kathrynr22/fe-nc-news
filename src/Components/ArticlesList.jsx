@@ -15,11 +15,7 @@ class ArticlesList extends Component {
       <main>
         <ul>
           {this.state.allArticles.map((article) => {
-            return (
-              <li key={article.article_id}>
-                <ArticleCard {...article} />
-              </li>
-            );
+            return <ArticleCard key={article.article_id} {...article} />;
           })}
         </ul>
       </main>
@@ -31,21 +27,31 @@ class ArticlesList extends Component {
   }
 
   getArticles = () => {
-    const { topic } = this.props;
-    console.log("inside get articles");
-    console.log(this.props);
     axios
-      .get("https://kathryn-nc-news.herokuapp.com/api/articles/topic/", {
-        params: {
-          topic: topic, //articles?topic=${topic}
-        },
-      })
+      .get("https://kathryn-nc-news.herokuapp.com/api/articles")
       .then(({ data: { allArticles } }) => {
-        // .then((response) => {
+        //.then((response) => {
         // console.log(response.data);
         this.setState({ allArticles, isLoading: false });
       });
   };
 }
+
+// getArticles = () => {
+//   const { topic } = this.props;
+//   //console.log("inside get articles");
+//   // console.log(this.props);
+//   axios
+//     .get("https://kathryn-nc-news.herokuapp.com/api/articles/topic/", {
+//       params: {
+//         topic: topic, //articles?topic=${topic}
+//       },
+//     })
+//     .then(({ data: { allArticles } }) => {
+//       // .then((response) => {
+//       // console.log(response.data);
+//       this.setState({ allArticles, isLoading: false });
+//     });
+// };
 
 export default ArticlesList;
