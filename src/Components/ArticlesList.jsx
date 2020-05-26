@@ -3,12 +3,14 @@ import ArticleCard from "./ArticleCard";
 import * as api from "../Utils/api";
 import Loader from "./Loader";
 import SortButton from "./SortButton";
+import OrderButton from "./OrderButton";
 
 class ArticlesList extends Component {
   state = {
     allArticles: [],
     isLoading: true,
     sort: "",
+    order: "",
   };
   render() {
     console.log(this.props);
@@ -16,6 +18,7 @@ class ArticlesList extends Component {
     return (
       <main>
         <SortButton handleSort={this.handleSort} />
+        <OrderButton handleOrder={this.handleOrder} />
         <ul>
           {this.state.allArticles.map((article) => {
             return <ArticleCard key={article.article_id} {...article} />;
@@ -29,6 +32,12 @@ class ArticlesList extends Component {
     console.log("inside handle sort");
     console.log(event.target.value);
     this.setState({ sort: event.target.value });
+  };
+
+  handleOrder = (event) => {
+    console.log("inside handle order");
+    console.log(event.target.value);
+    this.setState({ order: event.target.value });
   };
 
   componentDidMount() {
