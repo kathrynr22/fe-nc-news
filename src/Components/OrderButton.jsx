@@ -2,7 +2,7 @@ import React from "react";
 
 const OrderButton = (props) => {
   return (
-    <div className="order-box">
+    <div className="order-dropdown">
       <select defaultValue="Order" onChange={props.handleOrder}>
         <option disabled value="Order">
           Order

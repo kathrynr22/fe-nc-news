@@ -9,7 +9,7 @@ class ArticlesList extends Component {
   state = {
     allArticles: [],
     isLoading: true,
-    sort: "",
+    sort_by: "",
     order: "",
   };
   render() {
@@ -31,7 +31,7 @@ class ArticlesList extends Component {
   handleSort = (event) => {
     console.log("inside handle sort");
     console.log(event.target.value);
-    this.setState({ sort: event.target.value });
+    this.setState({ sort_by: event.target.value });
   };
 
   handleOrder = (event) => {
@@ -46,10 +46,11 @@ class ArticlesList extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     console.log("updated");
-    //prevState.sort !== this.state.sort
+
     if (
       prevProps.topic !== this.props.topic ||
-      prevState.sort !== this.state.sort
+      prevState.sort_by !== this.state.sort_by ||
+      prevState.order !== this.state.order
     ) {
       this.getArticles();
     }
@@ -57,18 +58,13 @@ class ArticlesList extends Component {
 
   getArticles = () => {
     const topic = this.props.topic;
-    const sort_by = this.state.sort;
+    const sort_by = this.state.sort_by;
+    const order = this.state.order;
     console.log("inside getarticles");
     console.log(sort_by);
+    console.log(order);
     api.getArticles(topic, sort_by).then((allArticles) => {
       this.setState({ allArticles, isLoading: false });
-    });
-  };
-
-  getArticleById = () => {
-    const article_id = this.props.article_id;
-    api.getArticleById(article_id).then((articleById) => {
-      this.setState({ articleById, isLoading: false });
     });
   };
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 const SortButton = (props) => {
   return (
-    <div className="search-box">
+    <div className="sort-dropdown">
       <select defaultValue="Sort" onChange={props.handleSort}>
         <option disabled value="Sort">
           Sort
