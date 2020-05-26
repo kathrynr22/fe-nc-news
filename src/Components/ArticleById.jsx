@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Loader from "./Loader";
-import axios from "axios";
+import * as api from "../Utils/api";
 
 class ArticleById extends Component {
   state = {
@@ -40,18 +40,29 @@ class ArticleById extends Component {
     this.getArticleById();
   }
 
+  // getArticleById = () => {
+
+  //   const article_id = this.props.article_id;
+  //   axios
+  //     .get(`https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}`)
+  //     .then(({ data: { articleById } }) => {
+
+  //       this.setState({ articleById, isLoading: false });
+  //     });
+  // };
+
   getArticleById = () => {
-    //console.log("inside get article");
-    //console.log(this.props.article_id);
     const article_id = this.props.article_id;
-    axios
-      .get(`https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}`)
-      .then(({ data: { articleById } }) => {
-        // .then((response) => {
-        // console.log(response.data.articleById);
-        this.setState({ articleById, isLoading: false });
-      });
+    api.getArticleById(article_id).then((articleById) => {
+      this.setState({ articleById, isLoading: false });
+    });
   };
 }
+
+// getTopics = () => {
+//   api.getTopics().then((topics) => {
+//     this.setState({ topics });
+//   });
+// };
 
 export default ArticleById;

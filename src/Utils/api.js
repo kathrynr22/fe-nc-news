@@ -7,3 +7,11 @@ export const getTopics = () => {
       return topics;
     });
 };
+
+export const getArticleById = (article_id) => {
+  return axios
+    .get(`https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}`)
+    .then(({ data: { articleById } }) => {
+      return articleById;
+    });
+};
