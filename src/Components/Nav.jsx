@@ -11,21 +11,18 @@ class Nav extends Component {
   render() {
     return (
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          {this.state.topics.map((topic) => {
-            console.log(topic);
-            return (
-              <li key={topic.slug}>
-                <Link to={`articles/topic/${topic.slug}`}>
-                  {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <Link to="/">
+          <p>Home</p>
+        </Link>
+
+        {this.state.topics.map((topic) => {
+          console.log(topic);
+          return (
+            <Link to={`articles/topic/${topic.slug}`}>
+              <p>{topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}</p>
+            </Link>
+          );
+        })}
       </nav>
     );
   }
