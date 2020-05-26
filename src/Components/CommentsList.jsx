@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CommentCard from "./CommentCard";
 import Loader from "./Loader";
-import axios from "axios";
+import * as api from "../Utils/api";
 
 class CommentsList extends Component {
   state = {
@@ -29,18 +29,10 @@ class CommentsList extends Component {
   }
 
   getComments = () => {
-    //console.log("inside get article");
-    //console.log(this.props.article_id);
     const article_id = this.props.article_id;
-    axios
-      .get(
-        `https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}/comments`
-      )
-      .then(({ data: { commentsByArticleId } }) => {
-        // .then((response) => {
-        // console.log(response.data.articleById);
-        this.setState({ commentsByArticleId, isLoading: false });
-      });
+    api.getComments(article_id).then((commentsByArticleId) => {
+      this.setState({ commentsByArticleId, isLoading: false });
+    });
   };
 }
 

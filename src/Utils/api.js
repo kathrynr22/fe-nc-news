@@ -15,3 +15,13 @@ export const getArticleById = (article_id) => {
       return articleById;
     });
 };
+
+export const getComments = (article_id) => {
+  return axios
+    .get(
+      `https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}/comments`
+    )
+    .then(({ data: { commentsByArticleId } }) => {
+      return commentsByArticleId;
+    });
+};
