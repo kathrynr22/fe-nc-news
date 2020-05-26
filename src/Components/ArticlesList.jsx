@@ -8,7 +8,7 @@ class ArticlesList extends Component {
   state = {
     allArticles: [],
     isLoading: true,
-    sort: "created_at",
+    sort: "",
   };
   render() {
     console.log(this.props);

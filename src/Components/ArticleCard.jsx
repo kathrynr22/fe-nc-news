@@ -19,6 +19,8 @@ const ArticleCard = ({
         {" "}
         by {author} published{created_at}
       </h3>
+      <h3>Vote Count: {votes}</h3>
+      <h3>Comment Count: {comment_count}</h3>
       <Link to={`/articles/${article_id}`}>Read the full article</Link>
     </article>
   );

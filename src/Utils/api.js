@@ -27,6 +27,8 @@ export const getComments = (article_id) => {
 };
 
 export const getArticles = (topic, sort_by) => {
+  console.log("inside axios");
+  console.log(sort_by);
   return axios
     .get("https://kathryn-nc-news.herokuapp.com/api/articles", {
       params: {
