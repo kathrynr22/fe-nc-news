@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ArticleCard from "./ArticleCard";
 import axios from "axios";
 import Loader from "./Loader";
+import SortButton from "./SortButton";
 
 class ArticlesList extends Component {
   state = {
@@ -13,6 +14,7 @@ class ArticlesList extends Component {
     if (this.state.isLoading) return <Loader />;
     return (
       <main>
+        <SortButton handleSort={this.handleSort} />
         <ul>
           {this.state.allArticles.map((article) => {
             return <ArticleCard key={article.article_id} {...article} />;
