@@ -42,11 +42,22 @@ export const getArticles = (topic, sort_by, order) => {
     });
 };
 
-export const patchArticleVote = (article_id) => {
+export const patchArticleVote = (article_id, inc_votes) => {
+  console.log("inside axios");
+  console.log(inc_votes);
   return axios.patch(
     `https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}`,
     {
-      thumb: 1,
+      inc_votes: inc_votes,
+    }
+  );
+};
+
+export const patchCommentVote = (comment_id, inc_votes) => {
+  return axios.patch(
+    `https://kathryn-nc-news.herokuapp.com/api/comments/${comment_id}`,
+    {
+      inc_votes: inc_votes,
     }
   );
 };

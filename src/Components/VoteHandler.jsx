@@ -14,7 +14,8 @@ class VoteHandler extends Component {
     });
 
     const { article_id } = this.props;
-    api.patchArticleVote(article_id);
+    const { inc_votes } = this.state;
+    api.patchArticleVote(article_id, inc_votes);
   };
 
   handleDownVote = (event) => {
@@ -24,7 +25,8 @@ class VoteHandler extends Component {
       };
     });
     const { article_id } = this.props;
-    api.patchArticleVote(article_id);
+    const { inc_votes } = this.state;
+    api.patchArticleVote(article_id, inc_votes);
   };
 
   render() {
