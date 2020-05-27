@@ -9,21 +9,20 @@ class VoteHandler extends Component {
   handleUpVote = (event) => {
     this.setState(({ inc_votes }) => {
       console.log("set state");
+      console.log(inc_votes);
       console.log(event); // 1
       return {
-        inc_votes: inc_votes + 1,
+        inc_votes: inc_votes + 1, // inc_votes is 0 plus 1
       };
     });
 
     const { article_id, comment_id } = this.props;
     const inc_votes = event;
     console.log("hi");
-    console.log(inc_votes);
+    console.log(inc_votes); //1
     console.log("hello from below setState");
     if (article_id) {
       return api.patchArticleVote(article_id, inc_votes).catch((err) => {
-        console.log("inside patch article");
-        console.log(err);
         this.setState(({ inc_votes }) => {
           return {
             inc_votes: inc_votes - 1,

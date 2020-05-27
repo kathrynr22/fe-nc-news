@@ -46,7 +46,7 @@ export const patchArticleVote = (article_id, inc_votes) => {
   console.log("inside axios patch article");
   console.log(inc_votes);
   return axios
-    .patch(`https://kathryn-nc-news.herokuapp.comapi/articles/${article_id}`, {
+    .patch(`https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}`, {
       inc_votes: inc_votes,
     })
     .then(({ data: { patchedArticle } }) => {
@@ -60,7 +60,7 @@ export const patchCommentVote = (comment_id, inc_votes) => {
   console.log("inside axios patch comment");
   console.log(inc_votes);
   return axios
-    .patch(`https://kathryn-nc-news.herokuapp.comapi/comments/${comment_id}`, {
+    .patch(`https://kathryn-nc-news.herokuapp.com/api/comments/${comment_id}`, {
       inc_votes: inc_votes,
     })
     .then(({ data: { patchedComment } }) => {
