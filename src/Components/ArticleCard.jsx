@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
+import VoteHandler from "./VoteHandler";
 
 const ArticleCard = ({
   author,
@@ -20,7 +21,7 @@ const ArticleCard = ({
         by {author} published on {""}
         {new Date(created_at).toLocaleString()}
       </h3>
-      <h3>Vote Count: {votes}</h3>
+      <VoteHandler votes={votes} article_id={article_id} />
       <h3>Comment Count: {comment_count}</h3>
       <Link to={`/articles/${article_id}`}>
         Click here to read the full article
