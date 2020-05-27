@@ -41,3 +41,12 @@ export const getArticles = (topic, sort_by, order) => {
       return allArticles;
     });
 };
+
+export const patchArticleVote = (article_id) => {
+  return axios.patch(
+    `https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}`,
+    {
+      thumb: 1,
+    }
+  );
+};

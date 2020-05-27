@@ -1,8 +1,30 @@
 import React, { Component } from "react";
+import * as api from "../Utils/api";
 
 class VoteHandler extends Component {
   state = {
     userVotes: 0,
+  };
+
+  handleUpVote = (event) => {
+    this.setState(({ userVotes }) => {
+      return {
+        userVotes: userVotes + 1,
+      };
+    });
+
+    const { article_id } = this.props;
+    api.patchArticleVote(article_id);
+  };
+
+  handleDownVote = (event) => {
+    this.setState(({ userVotes }) => {
+      return {
+        userVotes: userVotes - 1,
+      };
+    });
+    const { article_id } = this.props;
+    api.patchArticleVote(article_id);
   };
 
   render() {
@@ -10,13 +32,13 @@ class VoteHandler extends Component {
     const { votes, article_id } = this.props;
     return (
       <>
-        <p>Votes: {votes} </p>
-        <button>
+        <p>Votes: {votes + userVotes} </p>
+        <button onClick={this.handleUpVote}>
           <span role="img" aria-label="thumb-up">
             👍
           </span>
         </button>
-        <button>
+        <button onClick={this.handleDownVote}>
           <span role="img" aria-label="thumb-down">
             👎
           </span>
