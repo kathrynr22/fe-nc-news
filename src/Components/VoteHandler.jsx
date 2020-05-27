@@ -21,9 +21,21 @@ class VoteHandler extends Component {
     console.log(inc_votes);
     console.log("hello from below setState");
     if (article_id) {
-      return api.patchArticleVote(article_id, inc_votes);
+      return api.patchArticleVote(article_id, inc_votes).catch((err) => {
+        this.setState(({ inc_votes }) => {
+          return {
+            inc_votes: inc_votes - 1,
+          };
+        });
+      });
     } else if (comment_id) {
-      return api.patchCommentVote(comment_id, inc_votes);
+      return api.patchCommentVote(comment_id, inc_votes).catch((err) => {
+        this.setState(({ inc_votes }) => {
+          return {
+            inc_votes: inc_votes - 1,
+          };
+        });
+      });
     }
   };
 
@@ -38,9 +50,21 @@ class VoteHandler extends Component {
     console.log("hi from down vote");
     console.log(inc_votes);
     if (article_id) {
-      return api.patchArticleVote(article_id, inc_votes);
+      return api.patchArticleVote(article_id, inc_votes).catch((err) => {
+        this.setState(({ inc_votes }) => {
+          return {
+            inc_votes: inc_votes + 1,
+          };
+        });
+      });
     } else if (comment_id) {
-      return api.patchCommentVote(comment_id, inc_votes);
+      return api.patchCommentVote(comment_id, inc_votes).catch((err) => {
+        this.setState(({ inc_votes }) => {
+          return {
+            inc_votes: inc_votes + 1,
+          };
+        });
+      });
     }
   };
 
