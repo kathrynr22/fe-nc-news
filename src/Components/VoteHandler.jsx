@@ -33,12 +33,12 @@ class VoteHandler extends Component {
     return (
       <>
         <p>Votes: {votes + userVotes} </p>
-        <button onClick={this.handleUpVote} disabled={userVotes !== 0}>
+        <button onClick={this.handleUpVote} disabled={userVotes > 0}>
           <span role="img" aria-label="thumb-up">
             👍
           </span>
         </button>
-        <button onClick={this.handleDownVote} disabled={userVotes === -1}>
+        <button onClick={this.handleDownVote} disabled={userVotes < 0}>
           <span role="img" aria-label="thumb-down">
             👎
           </span>
