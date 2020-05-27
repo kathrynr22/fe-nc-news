@@ -16,7 +16,9 @@ class VoteHandler extends Component {
     });
 
     const { article_id, comment_id } = this.props;
-    const { inc_votes } = this.state;
+    const inc_votes = event;
+    console.log("hi");
+    console.log(inc_votes);
     console.log("hello from below setState");
     if (article_id) {
       return api.patchArticleVote(article_id, inc_votes);
@@ -32,7 +34,9 @@ class VoteHandler extends Component {
       };
     });
     const { article_id, comment_id } = this.props;
-    const { inc_votes } = this.state;
+    const inc_votes = event;
+    console.log("hi from down vote");
+    console.log(inc_votes);
     if (article_id) {
       return api.patchArticleVote(article_id, inc_votes);
     } else if (comment_id) {
