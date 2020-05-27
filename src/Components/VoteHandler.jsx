@@ -32,6 +32,8 @@ class VoteHandler extends Component {
       });
     } else if (comment_id) {
       return api.patchCommentVote(comment_id, inc_votes).catch((err) => {
+        console.log("inside patch comment");
+        console.log(err);
         this.setState(({ inc_votes }) => {
           return {
             inc_votes: inc_votes - 1,
