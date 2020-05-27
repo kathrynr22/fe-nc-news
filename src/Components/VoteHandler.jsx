@@ -13,9 +13,13 @@ class VoteHandler extends Component {
       };
     });
 
-    const { article_id } = this.props;
+    const { article_id, comment_id } = this.props;
     const { inc_votes } = this.state;
-    api.patchArticleVote(article_id, inc_votes);
+    if (article_id) {
+      return api.patchArticleVote(article_id, inc_votes);
+    } else if (comment_id) {
+      return api.patchCommentVote(comment_id, inc_votes);
+    }
   };
 
   handleDownVote = (event) => {
@@ -24,9 +28,13 @@ class VoteHandler extends Component {
         inc_votes: inc_votes - 1,
       };
     });
-    const { article_id } = this.props;
+    const { article_id, comment_id } = this.props;
     const { inc_votes } = this.state;
-    api.patchArticleVote(article_id, inc_votes);
+    if (article_id) {
+      return api.patchArticleVote(article_id, inc_votes);
+    } else if (comment_id) {
+      return api.patchCommentVote(comment_id, inc_votes);
+    }
   };
 
   render() {
