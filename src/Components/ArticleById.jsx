@@ -22,6 +22,8 @@ class ArticleById extends Component {
       created_at,
     } = this.state.articleById;
 
+    const username = this.props.username;
+
     if (this.state.isLoading) return <Loader />;
     return (
       <article>
@@ -34,7 +36,10 @@ class ArticleById extends Component {
         <p>{body}</p>
         <VoteHandler votes={votes} article_id={article_id} />{" "}
         <h3>Comment Count: {comment_count}</h3>
-        <CommentsList article_id={this.props.article_id} />
+        <CommentsList
+          article_id={this.props.article_id}
+          username={this.props.username}
+        />
       </article>
     );
   }

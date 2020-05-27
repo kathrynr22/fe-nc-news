@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CommentCard from "./CommentCard";
 import Loader from "./Loader";
 import * as api from "../Utils/api";
+import CommentAdder from "./CommentAdder";
 
 class CommentsList extends Component {
   state = {
@@ -9,14 +10,16 @@ class CommentsList extends Component {
     isLoading: true,
   };
   render() {
+    console.log("inside comments list");
     if (this.state.isLoading) return <Loader />;
     return (
       <main>
         <ul>
-          <h2>Id:{this.props.article_id}</h2>
+          <CommentAdder
+            username={this.props.username}
+            article_id={this.props.article_id}
+          />
           {this.state.commentsByArticleId.map((comment) => {
-            console.log("inside comment list");
-            console.log(comment);
             return <CommentCard key={comment.comment_id} {...comment} />;
           })}
         </ul>
