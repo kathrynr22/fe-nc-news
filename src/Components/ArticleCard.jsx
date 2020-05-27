@@ -18,7 +18,7 @@ const ArticleCard = ({
       <h3>
         {" "}
         by {author} published on {""}
-        {created_at}
+        {new Date(created_at).toLocaleString()}
       </h3>
       <h3>Vote Count: {votes}</h3>
       <h3>Comment Count: {comment_count}</h3>
