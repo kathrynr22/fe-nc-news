@@ -3,7 +3,6 @@ import ArticleCard from "./ArticleCard";
 import * as api from "../Utils/api";
 import Loader from "./Loader";
 import SortButton from "./SortButton";
-import OrderButton from "./OrderButton";
 
 class ArticlesList extends Component {
   state = {
@@ -17,8 +16,10 @@ class ArticlesList extends Component {
     if (this.state.isLoading) return <Loader />;
     return (
       <main>
-        <SortButton handleSort={this.handleSort} />
-        <OrderButton handleOrder={this.handleOrder} />
+        <SortButton
+          handleSort={this.handleSort}
+          handleOrder={this.handleOrder}
+        />
         <ul>
           {this.state.allArticles.map((article) => {
             return <ArticleCard key={article.article_id} {...article} />;
@@ -63,7 +64,7 @@ class ArticlesList extends Component {
     console.log("inside getarticles");
     console.log(sort_by);
     console.log(order);
-    api.getArticles(topic, sort_by).then((allArticles) => {
+    api.getArticles(topic, sort_by, order).then((allArticles) => {
       this.setState({ allArticles, isLoading: false });
     });
   };
