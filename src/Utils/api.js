@@ -45,21 +45,23 @@ export const getArticles = (topic, sort_by, order) => {
 export const patchArticleVote = (article_id, inc_votes) => {
   console.log("inside axios patch article");
   console.log(inc_votes);
-  return axios.patch(
-    `https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}`,
-    {
+  return axios
+    .patch(`https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}`, {
       inc_votes: inc_votes,
-    }
-  );
+    })
+    .then(({ data: { patchedArticle } }) => {
+      return patchedArticle;
+    });
 };
 
 export const patchCommentVote = (comment_id, inc_votes) => {
   console.log("inside axios patch comment");
   console.log(inc_votes);
-  return axios.patch(
-    `https://kathryn-nc-news.herokuapp.com/api/comments/${comment_id}`,
-    {
+  return axios
+    .patch(`https://kathryn-nc-news.herokuapp.com/api/comments/${comment_id}`, {
       inc_votes: inc_votes,
-    }
-  );
+    })
+    .then(({ data: { patchedComment } }) => {
+      return patchedComment;
+    });
 };
