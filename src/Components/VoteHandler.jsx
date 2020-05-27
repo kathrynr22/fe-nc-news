@@ -39,7 +39,6 @@ class VoteHandler extends Component {
 
   render() {
     const { inc_votes } = this.state;
-    //const { votes, article_id, comment_id } = this.props;
     const { votes } = this.props;
     return (
       <>

@@ -3,6 +3,8 @@
 }
 
 nav {
+  grid-area: nav;
+  background-color: chartreuse;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -11,5 +13,11 @@ nav {
 }
 
 footer {
+  grid-area: footer;
   background-color: blanchedalmond;
+}
+
+header {
+  grid-area: header;
+  background-color: cadetblue;
 }
