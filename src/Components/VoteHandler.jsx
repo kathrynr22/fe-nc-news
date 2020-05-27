@@ -3,13 +3,13 @@ import * as api from "../Utils/api";
 
 class VoteHandler extends Component {
   state = {
-    userVotes: 0,
+    inc_votes: 0,
   };
 
   handleUpVote = (event) => {
-    this.setState(({ userVotes }) => {
+    this.setState(({ inc_votes }) => {
       return {
-        userVotes: userVotes + 1,
+        inc_votes: inc_votes + 1,
       };
     });
 
@@ -18,9 +18,9 @@ class VoteHandler extends Component {
   };
 
   handleDownVote = (event) => {
-    this.setState(({ userVotes }) => {
+    this.setState(({ inc_votes }) => {
       return {
-        userVotes: userVotes - 1,
+        inc_votes: inc_votes - 1,
       };
     });
     const { article_id } = this.props;
@@ -28,17 +28,17 @@ class VoteHandler extends Component {
   };
 
   render() {
-    const { userVotes } = this.state;
+    const { inc_votes } = this.state;
     const { votes, article_id } = this.props;
     return (
       <>
-        <p>Votes: {votes + userVotes} </p>
-        <button onClick={this.handleUpVote} disabled={userVotes > 0}>
+        <p>Votes: {votes + inc_votes} </p>
+        <button onClick={this.handleUpVote} disabled={inc_votes > 0}>
           <span role="img" aria-label="thumb-up">
             👍
           </span>
         </button>
-        <button onClick={this.handleDownVote} disabled={userVotes < 0}>
+        <button onClick={this.handleDownVote} disabled={inc_votes < 0}>
           <span role="img" aria-label="thumb-down">
             👎
           </span>

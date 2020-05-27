@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Loader from "./Loader";
 import CommentsList from "./CommentsList";
+import VoteHandler from "./VoteHandler";
 import * as api from "../Utils/api";
 
 class ArticleById extends Component {
@@ -31,8 +32,9 @@ class ArticleById extends Component {
         </h3>
         <p>{body}</p>
         <h3>
-          Vote Count: {votes} Comment Count: {comment_count}
+          <VoteHandler votes={votes} article_id={article_id} />{" "}
         </h3>
+        <h3>Comment Count: {comment_count}</h3>
         <CommentsList article_id={this.props.article_id} />
       </article>
     );
