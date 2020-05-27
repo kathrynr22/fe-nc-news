@@ -8,7 +8,8 @@ const CommentCard = ({ author, body, comment_id, votes, created_at }) => {
       <ul>
         <li>
           <p>
-            {comment_id} by {author} published {created_at}
+            {comment_id} by {author} published{" "}
+            {new Date(created_at).toLocaleString()}
           </p>
           <p>{body}</p>
           <p>Vote Count{votes}</p>
