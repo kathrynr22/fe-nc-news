@@ -50,6 +50,8 @@ export const patchArticleVote = (article_id, inc_votes) => {
       inc_votes: inc_votes,
     })
     .then(({ data: { patchedArticle } }) => {
+      console.log("inside then");
+      console.log(patchedArticle);
       return patchedArticle;
     });
 };

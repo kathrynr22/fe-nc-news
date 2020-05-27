@@ -22,6 +22,8 @@ class VoteHandler extends Component {
     console.log("hello from below setState");
     if (article_id) {
       return api.patchArticleVote(article_id, inc_votes).catch((err) => {
+        console.log("inside patch article");
+        console.log(err);
         this.setState(({ inc_votes }) => {
           return {
             inc_votes: inc_votes - 1,
