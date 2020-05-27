@@ -1,4 +1,5 @@
 import React from "react";
+import VoteHandler from "./VoteHandler";
 
 const CommentCard = ({ author, body, comment_id, votes, created_at }) => {
   console.log(author);
@@ -12,7 +13,7 @@ const CommentCard = ({ author, body, comment_id, votes, created_at }) => {
             {new Date(created_at).toLocaleString()}
           </p>
           <p>{body}</p>
-          <p>Vote Count{votes}</p>
+          <VoteHandler votes={votes} comment_id={comment_id} />
         </li>
       </ul>
     </article>

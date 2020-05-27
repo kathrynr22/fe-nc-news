@@ -28,12 +28,11 @@ class ArticleById extends Component {
         <h1>Topic: {topic.charAt(0).toUpperCase() + topic.slice(1)}</h1>
         <h1>{title}</h1>
         <h3>
-          Id:{article_id} Written by {author} on {created_at}
+          Id:{article_id} Written by {author} on{" "}
+          {new Date(created_at).toLocaleString()}
         </h3>
         <p>{body}</p>
-        <h3>
-          <VoteHandler votes={votes} article_id={article_id} />{" "}
-        </h3>
+        <VoteHandler votes={votes} article_id={article_id} />{" "}
         <h3>Comment Count: {comment_count}</h3>
         <CommentsList article_id={this.props.article_id} />
       </article>
