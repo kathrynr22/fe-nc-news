@@ -8,18 +8,18 @@ import { Router } from "@reach/router";
 import "./App.css";
 
 class App extends Component {
-  state = {
-    user: "Kathryn",
-  };
+  state = { username: "jessjelly" };
+
   render() {
+    const { username } = this.state;
     return (
       <div>
-        <Header user={this.state.user} />
+        <Header username={username} />
         <Nav />
         <Router>
           <ArticlesList path="/" />
-          <ArticlesList path="/articles/topic/:topic" />
-          <ArticleById path="/articles/:article_id" />
+          <ArticlesList path="/articles/topic/:topic" username={username} />
+          <ArticleById path="/articles/:article_id" username={username} />
         </Router>
         <Footer />
       </div>

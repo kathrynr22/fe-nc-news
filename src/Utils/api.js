@@ -29,11 +29,10 @@ export const getComments = (article_id) => {
 export const getArticles = (topic, sort_by, order) => {
   console.log("inside axios");
   console.log(sort_by);
-  console.log(order);
+
   return axios
     .get("https://kathryn-nc-news.herokuapp.com/api/articles", {
       params: {
-        order: order,
         topic: topic,
         sort_by: sort_by,
       },
