@@ -10,20 +10,6 @@ const CommentCard = ({
   username,
   deleteComment,
 }) => {
-  console.log("inside comment card");
-  console.log(author);
-  console.log(username);
-
-  // deleteTodo = (id) => {
-  //   //console.log("delete button pressed");
-  //   const todos = this.state.items.filter((todo) => {
-  //     return todo.id !== id;
-  //   });
-  //   this.setState({
-  //     items: todos,
-  //   });
-  // };
-
   return (
     <article>
       <ul>
