@@ -79,3 +79,9 @@ export const postComment = (article_id, username, body) => {
       return postedComment;
     });
 };
+
+export const deleteCommentByCommentId = (comment_id) => {
+  return axios.delete(
+    `https://kathryn-nc-news.herokuapp.com/api/comments/${comment_id}`
+  );
+};

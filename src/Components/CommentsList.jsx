@@ -54,18 +54,8 @@ class CommentsList extends Component {
     });
   };
 
-  // handleDelete = comment_id => {
-  //   api.deleteComment(comment_id).then(
-  //     this.setState(currentState => {
-  //       let newCommentList = currentState.comments.filter(
-  //         comment => comment.comment_id !== comment_id);
-  //       return { ...currentState, comments: newCommentList };
-  //     })
-  //   );
-  // };
-
   deleteComment = (comment_id) => {
-    //console.log("delete button pressed");
+    console.log("delete button pressed");
     const comments = this.state.commentsByArticleId.filter((comment) => {
       return comment.comment_id !== comment_id;
     });
