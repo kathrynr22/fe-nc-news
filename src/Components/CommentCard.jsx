@@ -22,7 +22,7 @@ const CommentCard = ({
           </p>
           <p>{body}</p>
           <label>
-            <button disabled={username !== author}>Delete Comment</button>
+            <button hidden={username !== author}>Delete Comment</button>
           </label>
 
           <VoteHandler votes={votes} comment_id={comment_id} />
