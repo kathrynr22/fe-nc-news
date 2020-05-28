@@ -16,9 +16,9 @@ class CommentAdder extends Component {
     console.log("inside input change");
     console.log(event.target.name);
     console.log(event.target.value);
-    const { name, value } = event.target;
+    //const { name, value } = event.target;
     this.setState({
-      [name]: value,
+      body: event.target.value,
     });
   };
 
@@ -26,14 +26,19 @@ class CommentAdder extends Component {
     console.log("inside submit");
     console.log(event);
     event.preventDefault();
-    const newComment = this.state;
+    //const newComment = this.state;
+    const username = this.props.username;
+    console.log(username);
+    const body = this.state.body;
+    console.log("hiiiiiiiii");
+
     const article_id = this.props.article_id;
-    console.log(newComment);
+    //console.log(newComment);
     axios
       //   `https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}/comments`
       .post(
         `https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
-        newComment
+        { username, body }
       )
       .then((response) => {
         const postedComment = response.data.postedComment;

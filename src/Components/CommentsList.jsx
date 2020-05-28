@@ -18,6 +18,7 @@ class CommentsList extends Component {
           <CommentAdder
             username={this.props.username}
             article_id={this.props.article_id}
+            addCommentToState={this.addCommentToState}
           />
           {this.state.commentsByArticleId.map((comment) => {
             return <CommentCard key={comment.comment_id} {...comment} />;
@@ -35,6 +36,14 @@ class CommentsList extends Component {
     const article_id = this.props.article_id;
     api.getComments(article_id).then((commentsByArticleId) => {
       this.setState({ commentsByArticleId, isLoading: false });
+    });
+  };
+
+  addCommentToState = (newComment) => {
+    this.setState((currentState) => {
+      return {
+        commentsByArticleId: [newComment, ...currentState.commentsByArticleId],
+      };
     });
   };
 }
