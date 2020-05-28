@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "@reach/router";
 
-const ErrorHandler = () => {
+const ErrorHandler = ({ err }) => {
   return (
     <section>
       <h3>
-        Sorry something went wrong. To go to the home page, click{" "}
+        {err} Oops, something went wrong. To go to the home page, click{" "}
         <Link to="/">here</Link>
       </h3>
     </section>

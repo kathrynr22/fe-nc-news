@@ -3,11 +3,13 @@ import Loader from "./Loader";
 import CommentsList from "./CommentsList";
 import VoteHandler from "./VoteHandler";
 import * as api from "../Utils/api";
+import ErrorHandler from "./ErrorHandler";
 
 class ArticleById extends Component {
   state = {
     articleById: {},
     isLoading: true,
+    err: "",
   };
 
   render() {
@@ -22,9 +24,13 @@ class ArticleById extends Component {
       created_at,
     } = this.state.articleById;
 
+    const { err, isLoading, articleById } = this.state;
+
     const username = this.props.username;
 
     if (this.state.isLoading) return <Loader />;
+    if (err) return <ErrorHandler err={err} />;
+
     return (
       <article>
         <h1>Topic: {topic.charAt(0).toUpperCase() + topic.slice(1)}</h1>
@@ -50,9 +56,15 @@ class ArticleById extends Component {
 
   getArticleById = () => {
     const article_id = this.props.article_id;
-    api.getArticleById(article_id).then((articleById) => {
-      this.setState({ articleById, isLoading: false });
-    });
+    api
+      .getArticleById(article_id)
+      .then((articleById) => {
+        this.setState({ articleById, isLoading: false });
+      })
+      .catch((err) => {
+        console.dir(err.response.data.msg);
+        this.setState({ err: err.response.data.msg, isLoading: false });
+      });
   };
 }
 
