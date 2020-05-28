@@ -56,11 +56,16 @@ class CommentsList extends Component {
 
   deleteComment = (comment_id) => {
     console.log("delete button pressed");
-    const comments = this.state.commentsByArticleId.filter((comment) => {
-      return comment.comment_id !== comment_id;
-    });
-    this.setState({
-      commentsByArticleId: comments,
+
+    api.deleteCommentByCommentId(comment_id).then(() => {
+      this.setState((currentState) => {
+        const newCommentsByArticleId = currentState.commentsByArticleId.filter(
+          (comment) => {
+            return comment_id !== comment.comment_id;
+          }
+        );
+        return { commentsByArticleId: newCommentsByArticleId };
+      });
     });
   };
 }
