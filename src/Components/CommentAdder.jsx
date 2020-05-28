@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import * as api from "../Utils/api";
 
 class CommentAdder extends Component {
   state = {
@@ -15,25 +15,17 @@ class CommentAdder extends Component {
 
   handleSubmitForm = (event) => {
     event.preventDefault();
-    //const newComment = this.state;
+
     const username = this.props.username;
 
     const body = this.state.body;
 
     const article_id = this.props.article_id;
     //console.log(newComment);
-    axios
-      //   `https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}/comments`
-      .post(
-        `https://kathryn-nc-news.herokuapp.com/api/articles/${article_id}/comments`,
-        { username, body }
-      )
-      .then((response) => {
-        const postedComment = response.data.postedComment;
-        this.props.addCommentToState(postedComment);
-        this.setState({ username: "", body: "" });
-      })
-      .catch((err) => console.log(err));
+    api.postComment(article_id, username, body).then((postedComment) => {
+      this.props.addCommentToState(postedComment);
+      this.setState({ username: "", body: "" });
+    });
   };
 
   render() {

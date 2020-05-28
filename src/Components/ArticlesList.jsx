@@ -50,9 +50,6 @@ class ArticlesList extends Component {
     const topic = this.props.topic;
     const sort_by = this.state.sort_by;
 
-    console.log("inside getarticles");
-    console.log(sort_by);
-
     api.getArticles(topic, sort_by).then((allArticles) => {
       this.setState({ allArticles, isLoading: false });
     });
