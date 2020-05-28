@@ -26,6 +26,7 @@ class CommentsList extends Component {
                 key={comment.comment_id}
                 {...comment}
                 username={this.props.username}
+                deleteComment={this.deleteComment}
               />
             );
           })}
@@ -50,6 +51,26 @@ class CommentsList extends Component {
       return {
         commentsByArticleId: [newComment, ...currentState.commentsByArticleId],
       };
+    });
+  };
+
+  // handleDelete = comment_id => {
+  //   api.deleteComment(comment_id).then(
+  //     this.setState(currentState => {
+  //       let newCommentList = currentState.comments.filter(
+  //         comment => comment.comment_id !== comment_id);
+  //       return { ...currentState, comments: newCommentList };
+  //     })
+  //   );
+  // };
+
+  deleteComment = (comment_id) => {
+    //console.log("delete button pressed");
+    const comments = this.state.commentsByArticleId.filter((comment) => {
+      return comment.comment_id !== comment_id;
+    });
+    this.setState({
+      commentsByArticleId: comments,
     });
   };
 }
