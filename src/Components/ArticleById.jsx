@@ -62,7 +62,8 @@ class ArticleById extends Component {
         this.setState({ articleById, isLoading: false });
       })
       .catch((err) => {
-        console.dir(err.response.data.msg);
+        console.log("inside catch");
+        //console.dir(err.response.data.msg);
         this.setState({ err: err.response.data.msg, isLoading: false });
       });
   };
