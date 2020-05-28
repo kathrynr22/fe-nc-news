@@ -7,30 +7,18 @@ class CommentAdder extends Component {
     body: "",
   };
 
-  // {
-  //   "name": "Ant Medina",
-  //   "startingCohort": 1
-  // }
-
   handleInputChange = (event) => {
-    console.log("inside input change");
-    console.log(event.target.name);
-    console.log(event.target.value);
-    //const { name, value } = event.target;
     this.setState({
       body: event.target.value,
     });
   };
 
   handleSubmitForm = (event) => {
-    console.log("inside submit");
-    console.log(event);
     event.preventDefault();
     //const newComment = this.state;
     const username = this.props.username;
-    console.log(username);
+
     const body = this.state.body;
-    console.log("hiiiiiiiii");
 
     const article_id = this.props.article_id;
     //console.log(newComment);
@@ -49,18 +37,11 @@ class CommentAdder extends Component {
   };
 
   render() {
-    const { username, body } = this.state;
-    console.log("inside comment adder");
-    console.log(this.props);
+    const { body } = this.state;
+
     return (
       <form onSubmit={this.handleSubmitForm}>
-        <label htmlFor="username">Username</label>
-        <input
-          onChange={this.handleInputChange}
-          name="username"
-          value={username}
-        />
-        <label htmlFor="body">Body</label>
+        <label htmlFor="body">Post a comment</label>
         <input
           onChange={this.handleInputChange}
           name="body"
