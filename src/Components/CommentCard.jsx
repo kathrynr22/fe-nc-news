@@ -1,8 +1,17 @@
 import React from "react";
 import VoteHandler from "./VoteHandler";
 
-const CommentCard = ({ author, body, comment_id, votes, created_at }) => {
+const CommentCard = ({
+  author,
+  body,
+  comment_id,
+  votes,
+  created_at,
+  username,
+}) => {
+  console.log("inside comment card");
   console.log(author);
+  console.log(username);
 
   return (
     <article>
@@ -12,6 +21,9 @@ const CommentCard = ({ author, body, comment_id, votes, created_at }) => {
             {author} {new Date(created_at).toLocaleString()}
           </p>
           <p>{body}</p>
+          <label>
+            <button>Delete Comment</button>
+          </label>
 
           <VoteHandler votes={votes} comment_id={comment_id} />
         </li>

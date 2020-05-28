@@ -21,7 +21,13 @@ class CommentsList extends Component {
             addCommentToState={this.addCommentToState}
           />
           {this.state.commentsByArticleId.map((comment) => {
-            return <CommentCard key={comment.comment_id} {...comment} />;
+            return (
+              <CommentCard
+                key={comment.comment_id}
+                {...comment}
+                username={this.props.username}
+              />
+            );
           })}
         </ul>
       </main>
