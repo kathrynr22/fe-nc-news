@@ -18,9 +18,6 @@ class VoteHandler extends Component {
 
     const { article_id, comment_id } = this.props;
     const inc_votes = event;
-    console.log("hi");
-    console.log(inc_votes); //1
-    console.log("hello from below setState");
     if (article_id) {
       return api.patchArticleVote(article_id, inc_votes).catch((err) => {
         this.setState(({ inc_votes }) => {
