@@ -33,13 +33,16 @@ class CommentAdder extends Component {
 
     return (
       <form onSubmit={this.handleSubmitForm}>
-        <label htmlFor="body">Post a comment</label>
-        <input
+        <textarea
           onChange={this.handleInputChange}
-          name="body"
-          type="text"
           value={body}
+          rows="10"
+          cols="40"
+          type="text"
+          placeholder="type comment here"
+          required
         />
+
         <button>Submit Comment</button>
       </form>
     );
