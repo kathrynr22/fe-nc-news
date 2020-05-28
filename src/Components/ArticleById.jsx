@@ -24,9 +24,7 @@ class ArticleById extends Component {
       created_at,
     } = this.state.articleById;
 
-    const { err, isLoading, articleById } = this.state;
-
-    const username = this.props.username;
+    const { err } = this.state;
 
     if (this.state.isLoading) return <Loader />;
     if (err) return <ErrorHandler err={err} />;
@@ -62,8 +60,6 @@ class ArticleById extends Component {
         this.setState({ articleById, isLoading: false });
       })
       .catch((err) => {
-        console.log("inside catch");
-        //console.dir(err.response.data.msg);
         this.setState({ err: err.response.data.msg, isLoading: false });
       });
   };

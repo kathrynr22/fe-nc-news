@@ -3,12 +3,14 @@ import { Link } from "@reach/router";
 
 const ErrorHandler = ({ err }) => {
   //const msg = err.response.data.msg;
-  console.log("inside error");
-  console.log(err);
-  const error = err ? err : "oops something went wrong";
+
+  const error = err ? err : "Oops something went wrong...";
   return (
     <section>
       <h3>{error}</h3>
+      <h3>
+        To return to the home page click <Link to="/">here</Link>
+      </h3>
     </section>
   );
 };
