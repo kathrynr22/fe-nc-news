@@ -3,16 +3,19 @@ import ArticleCard from "./ArticleCard";
 import * as api from "../Utils/api";
 import Loader from "./Loader";
 import SortButton from "./SortButton";
+import ErrorHandler from "./ErrorHandler";
 
 class ArticlesList extends Component {
   state = {
     allArticles: [],
     isLoading: true,
     sort_by: "",
+    err: "",
   };
   render() {
-    console.log(this.props);
-    if (this.state.isLoading) return <Loader />;
+    const { err, isLoading } = this.state;
+    if (isLoading) return <Loader />;
+    if (err) return <ErrorHandler msg={err} />;
     return (
       <main>
         <SortButton handleSort={this.handleSort} />
@@ -26,8 +29,6 @@ class ArticlesList extends Component {
   }
 
   handleSort = (event) => {
-    console.log("inside handle sort");
-    console.log(event.target.value);
     this.setState({ sort_by: event.target.value });
   };
 
@@ -50,9 +51,14 @@ class ArticlesList extends Component {
     const topic = this.props.topic;
     const sort_by = this.state.sort_by;
 
-    api.getArticles(topic, sort_by).then((allArticles) => {
-      this.setState({ allArticles, isLoading: false });
-    });
+    api
+      .getArticles(topic, sort_by)
+      .then((allArticles) => {
+        this.setState({ allArticles, isLoading: false });
+      })
+      .catch((err) => {
+        this.setState({ err: err.response.data.msg, isLoading: false });
+      });
   };
 }
 

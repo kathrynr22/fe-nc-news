@@ -27,7 +27,7 @@ class ArticleById extends Component {
     const { err } = this.state;
 
     if (this.state.isLoading) return <Loader />;
-    if (err) return <ErrorHandler err={err} />;
+    if (err) return <ErrorHandler msg={err} />;
 
     return (
       <article>
