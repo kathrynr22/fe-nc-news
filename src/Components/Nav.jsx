@@ -3,8 +3,6 @@ import { Link } from "@reach/router";
 import * as api from "../Utils/api";
 
 class Nav extends Component {
-  //how can i best do this for users as well
-
   state = {
     topics: [],
   };

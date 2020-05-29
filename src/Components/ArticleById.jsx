@@ -24,9 +24,9 @@ class ArticleById extends Component {
       created_at,
     } = this.state.articleById;
 
-    const { err } = this.state;
+    const { err, isLoading } = this.state;
 
-    if (this.state.isLoading) return <Loader />;
+    if (isLoading) return <Loader />;
     if (err) return <ErrorHandler msg={err} />;
 
     return (

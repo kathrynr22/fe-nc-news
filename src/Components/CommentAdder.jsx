@@ -6,7 +6,6 @@ class CommentAdder extends Component {
   state = {
     username: "",
     body: "",
-
     err: "",
   };
 

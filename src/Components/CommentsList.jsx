@@ -51,7 +51,6 @@ class CommentsList extends Component {
         this.setState({ commentsByArticleId, isLoading: false });
       })
       .catch((err) => {
-        console.dir(err);
         this.setState({ err: err.response.data.msg, isLoading: false });
       });
   };
@@ -65,8 +64,6 @@ class CommentsList extends Component {
   };
 
   deleteComment = (comment_id) => {
-    console.log("delete button pressed");
-
     api.deleteCommentByCommentId(comment_id).then(() => {
       this.setState((currentState) => {
         const newCommentsByArticleId = currentState.commentsByArticleId.filter(
