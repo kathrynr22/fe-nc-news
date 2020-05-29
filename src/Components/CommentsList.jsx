@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CommentCard from "./CommentCard";
 import Loader from "./Loader";
+import ErrorHandler from "./ErrorHandler";
 import * as api from "../Utils/api";
 import CommentAdder from "./CommentAdder";
 
@@ -8,10 +9,13 @@ class CommentsList extends Component {
   state = {
     commentsByArticleId: [],
     isLoading: true,
+    err: "",
   };
   render() {
-    console.log("inside comments list");
-    if (this.state.isLoading) return <Loader />;
+    const { isLoading, err } = this.state;
+    if (isLoading) return <Loader />;
+    if (err) return <ErrorHandler msg={err} />;
+
     return (
       <main>
         <ul>
@@ -41,9 +45,15 @@ class CommentsList extends Component {
 
   getComments = () => {
     const article_id = this.props.article_id;
-    api.getComments(article_id).then((commentsByArticleId) => {
-      this.setState({ commentsByArticleId, isLoading: false });
-    });
+    api
+      .getComments(article_id)
+      .then((commentsByArticleId) => {
+        this.setState({ commentsByArticleId, isLoading: false });
+      })
+      .catch((err) => {
+        console.dir(err);
+        this.setState({ err: err.response.data.msg, isLoading: false });
+      });
   };
 
   addCommentToState = (newComment) => {

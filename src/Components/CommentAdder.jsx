@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+
 import * as api from "../Utils/api";
 
 class CommentAdder extends Component {
   state = {
     username: "",
     body: "",
+
+    err: "",
   };
 
   handleInputChange = (event) => {
@@ -21,7 +24,7 @@ class CommentAdder extends Component {
     const body = this.state.body;
 
     const article_id = this.props.article_id;
-    //console.log(newComment);
+
     api.postComment(article_id, username, body).then((postedComment) => {
       this.props.addCommentToState(postedComment);
       this.setState({ username: "", body: "" });
