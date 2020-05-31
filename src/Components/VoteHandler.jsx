@@ -6,10 +6,10 @@ class VoteHandler extends Component {
     inc_votes: 0,
   };
 
-  handleUpVote = (event) => {
+  handleVoteChange = (event) => {
     this.setState(({ inc_votes }) => {
       return {
-        inc_votes: inc_votes + 1, // inc_votes is 0 plus 1
+        inc_votes: inc_votes + event, // inc_votes is 0 plus 1
       };
     });
 
@@ -19,37 +19,7 @@ class VoteHandler extends Component {
       return api.patchArticleVote(article_id, inc_votes).catch((err) => {
         this.setState(({ inc_votes }) => {
           return {
-            inc_votes: inc_votes - 1,
-          };
-        });
-      });
-    } else if (comment_id) {
-      return api.patchCommentVote(comment_id, inc_votes).catch((err) => {
-        console.log("inside patch comment");
-        console.log(err);
-        this.setState(({ inc_votes }) => {
-          return {
-            inc_votes: inc_votes - 1,
-          };
-        });
-      });
-    }
-  };
-
-  handleDownVote = (event) => {
-    this.setState(({ inc_votes }) => {
-      return {
-        inc_votes: inc_votes - 1,
-      };
-    });
-    const { article_id, comment_id } = this.props;
-    const inc_votes = event;
-
-    if (article_id) {
-      return api.patchArticleVote(article_id, inc_votes).catch((err) => {
-        this.setState(({ inc_votes }) => {
-          return {
-            inc_votes: inc_votes + 1,
+            inc_votes: inc_votes - event,
           };
         });
       });
@@ -57,7 +27,7 @@ class VoteHandler extends Component {
       return api.patchCommentVote(comment_id, inc_votes).catch((err) => {
         this.setState(({ inc_votes }) => {
           return {
-            inc_votes: inc_votes + 1,
+            inc_votes: inc_votes - event,
           };
         });
       });
@@ -71,7 +41,7 @@ class VoteHandler extends Component {
       <>
         <p>Votes: {votes + inc_votes} </p>
         <button
-          onClick={() => this.handleUpVote(1, article_id, comment_id)}
+          onClick={() => this.handleVoteChange(1, article_id, comment_id)}
           disabled={inc_votes > 0}
         >
           <span role="img" aria-label="thumb-up">
@@ -79,7 +49,7 @@ class VoteHandler extends Component {
           </span>
         </button>
         <button
-          onClick={() => this.handleDownVote(-1, article_id, comment_id)}
+          onClick={() => this.handleVoteChange(-1, article_id, comment_id)}
           disabled={inc_votes < 0}
         >
           <span role="img" aria-label="thumb-down">
