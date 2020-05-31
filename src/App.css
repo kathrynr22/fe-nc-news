@@ -4,7 +4,10 @@
 
 nav {
   grid-area: nav;
-  background-color: chartreuse;
+  background-color: brown;
+  font-weight: 800;
+  color: gainsboro;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -15,9 +18,41 @@ nav {
 footer {
   grid-area: footer;
   background-color: blanchedalmond;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 header {
   grid-area: header;
-  background-color: cadetblue;
+  background-color: lightgray;
+  color: darkred;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-sign {
+  text-align: right;
+  font-size: smaller;
+}
+
+main {
+  background-color: gainsboro;
+}
+
+.comments-list {
+  background-color: red;
+}
+
+.topic-header {
+  font-family: monospace;
+  background-color: lightgray;
+  color: darkred;
+  text-align: right;
+}
+
+.title {
+  font-family: monospace;
+}
+
+.readmore {
+  font-weight: bold;
 }

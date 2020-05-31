@@ -5,7 +5,7 @@ const Header = ({ username }) => {
     <header>
       <h1>NC News</h1>
       <h2>Welcome to NC news</h2>
-      <p>You are currently signed in as: {username}</p>
+      <p className="user-sign">You are currently signed in as: {username}</p>
     </header>
   );
 };

@@ -12,17 +12,19 @@ const ArticleCard = ({
 }) => {
   return (
     <article>
-      <h2>{topic.charAt(0).toUpperCase() + topic.slice(1)}</h2>
-      <h2>{title}</h2>
-      <h3>
+      <h2 className="topic-header">
+        {topic.charAt(0).toUpperCase() + topic.slice(1)}
+      </h2>
+      <h2 className="title">{title}</h2>
+      <p>
         {" "}
         by {author} published on {""}
         {new Date(created_at).toLocaleString()}
-      </h3>
+      </p>
       Vote Count: {votes}
-      <h3>Comment Count: {comment_count}</h3>
-      <Link to={`/articles/${article_id}`}>
-        Click here to read the full article
+      <p>Comment Count: {comment_count}</p>
+      <Link to={`/articles/${article_id}`} className="readmore">
+        Read more
       </Link>
     </article>
   );

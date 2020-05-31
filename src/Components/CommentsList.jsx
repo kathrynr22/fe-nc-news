@@ -17,7 +17,7 @@ class CommentsList extends Component {
     if (err) return <ErrorHandler msg={err} />;
 
     return (
-      <main>
+      <main className="comments-list">
         <CommentAdder
           username={this.props.username}
           article_id={this.props.article_id}
