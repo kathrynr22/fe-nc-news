@@ -37,12 +37,10 @@ class ArticlesList extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("updated");
+    const topicChanged = prevProps.topic !== this.props.topic;
+    const sortByChanged = prevState.sort_by !== this.state.sort_by;
 
-    if (
-      prevProps.topic !== this.props.topic ||
-      prevState.sort_by !== this.state.sort_by
-    ) {
+    if (topicChanged || sortByChanged) {
       this.getArticles();
     }
   }

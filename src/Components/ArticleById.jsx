@@ -31,8 +31,8 @@ class ArticleById extends Component {
 
     return (
       <article>
-        <h1>Topic: {topic.charAt(0).toUpperCase() + topic.slice(1)}</h1>
-        <h1>{title}</h1>
+        <h2>Topic: {topic.charAt(0).toUpperCase() + topic.slice(1)}</h2>
+        <h2>{title}</h2>
         <h3>
           Id:{article_id} Written by {author} on{" "}
           {new Date(created_at).toLocaleString()}

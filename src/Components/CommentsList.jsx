@@ -18,12 +18,12 @@ class CommentsList extends Component {
 
     return (
       <main>
+        <CommentAdder
+          username={this.props.username}
+          article_id={this.props.article_id}
+          addCommentToState={this.addCommentToState}
+        />
         <ul>
-          <CommentAdder
-            username={this.props.username}
-            article_id={this.props.article_id}
-            addCommentToState={this.addCommentToState}
-          />
           {this.state.commentsByArticleId.map((comment) => {
             return (
               <CommentCard

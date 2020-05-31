@@ -14,7 +14,6 @@ class Nav extends Component {
         </Link>
 
         {this.state.topics.map((topic) => {
-          console.log(topic);
           return (
             <Link to={`articles/topic/${topic.slug}`} key={topic.slug}>
               <p>{topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}</p>
