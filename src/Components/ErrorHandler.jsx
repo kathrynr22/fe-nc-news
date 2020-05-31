@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "@reach/router";
 
 const ErrorHandler = ({ msg }) => {
-  //const msg = err.response.data.msg;
-
   const err = msg ? msg : "Oops something went wrong...";
   return (
     <section>

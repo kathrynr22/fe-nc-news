@@ -18,16 +18,21 @@ class CommentAdder extends Component {
   handleSubmitForm = (event) => {
     event.preventDefault();
 
-    const username = this.props.username;
+    const { username } = this.props;
 
-    const body = this.state.body;
+    const { body } = this.state;
 
-    const article_id = this.props.article_id;
+    const { article_id } = this.props;
 
-    api.postComment(article_id, username, body).then((postedComment) => {
-      this.props.addCommentToState(postedComment);
-      this.setState({ username: "", body: "" });
-    });
+    api
+      .postComment(article_id, username, body)
+      .then((postedComment) => {
+        this.props.addCommentToState(postedComment);
+        this.setState({ username: "", body: "" });
+      })
+      .catch((err) => {
+        this.setState({ err: err.response.data.msg, isLoading: false });
+      });
   };
 
   render() {

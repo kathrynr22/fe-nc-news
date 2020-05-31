@@ -44,7 +44,7 @@ class CommentsList extends Component {
   }
 
   getComments = () => {
-    const article_id = this.props.article_id;
+    const { article_id } = this.props;
     api
       .getComments(article_id)
       .then((commentsByArticleId) => {
@@ -64,16 +64,21 @@ class CommentsList extends Component {
   };
 
   deleteComment = (comment_id) => {
-    api.deleteCommentByCommentId(comment_id).then(() => {
-      this.setState((currentState) => {
-        const newCommentsByArticleId = currentState.commentsByArticleId.filter(
-          (comment) => {
-            return comment_id !== comment.comment_id;
-          }
-        );
-        return { commentsByArticleId: newCommentsByArticleId };
+    api
+      .deleteCommentByCommentId(comment_id)
+      .then(() => {
+        this.setState((currentState) => {
+          const newCommentsByArticleId = currentState.commentsByArticleId.filter(
+            (comment) => {
+              return comment_id !== comment.comment_id;
+            }
+          );
+          return { commentsByArticleId: newCommentsByArticleId };
+        });
+      })
+      .catch((err) => {
+        this.setState({ err: err.response.data.msg, isLoading: false });
       });
-    });
   };
 }
 

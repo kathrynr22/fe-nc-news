@@ -8,9 +8,6 @@ class VoteHandler extends Component {
 
   handleUpVote = (event) => {
     this.setState(({ inc_votes }) => {
-      console.log("set state");
-      console.log(inc_votes);
-      console.log(event); // 1
       return {
         inc_votes: inc_votes + 1, // inc_votes is 0 plus 1
       };
@@ -47,8 +44,7 @@ class VoteHandler extends Component {
     });
     const { article_id, comment_id } = this.props;
     const inc_votes = event;
-    console.log("hi from down vote");
-    console.log(inc_votes);
+
     if (article_id) {
       return api.patchArticleVote(article_id, inc_votes).catch((err) => {
         this.setState(({ inc_votes }) => {
