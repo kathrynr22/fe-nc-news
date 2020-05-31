@@ -54,7 +54,7 @@ class ArticlesList extends Component {
     api
       .getArticles(topic, sort_by)
       .then((allArticles) => {
-        this.setState({ allArticles, isLoading: false });
+        this.setState({ allArticles, isLoading: false, err: "" });
       })
       .catch((err) => {
         this.setState({ err: err.response.data.msg, isLoading: false });

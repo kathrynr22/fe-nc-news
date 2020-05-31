@@ -22,10 +22,10 @@ class App extends Component {
           <ArticlesList path="/" />
           <ArticlesList path="/articles/topic/:topic" username={username} />
           <ArticleById path="/articles/:article_id" username={username} />
-          <CommentsList
+          {/* <CommentsList
             path="/articles/:article_id/comments"
             username={username}
-          />
+          /> */}
           <ErrorHandler default />
         </Router>
         <Footer />

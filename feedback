@@ -1,0 +1,73 @@
+# Feedback
+
+Overall, this is a very good project, well done! Lots of good code here - the main thing I spotted throughout to improve is sometimes choosing more suitable html tags (I've outlined this below), but generally very readable code and sound logic. Well done!
+
+## Things you did well
+
+- [x] Hosting: Refreshing doesn’t cause an issue on sub-pages
+- [x] No errors in the console
+- [x] Some indication of who is logged in
+- [x] Votes happen instantly or indication of loading
+- [x] Can vote on articles
+- [x] Can vote a maximum of once in either direction per page load
+- [x] Votes are persistent when page is refreshed
+- [x] Topic pages load only relevant articles (especially when navigating from one topic page to another)
+- [x] Can sort articles by date created / comment_count / votes
+- [x] Individual articles are served with comments
+- [x] Can vote on comments
+- [x] Can vote a maximum of once in either direction per page load
+- [x] Votes are persistent when page is refreshed
+- [x] Can post new comments, which are persistent
+- [x] Can only delete comments of logged in user
+- [x] Deleted comments don’t re-appear on re-render/refresh
+- [x] Error handling: Invalid article id in url
+- [x] Error handling: Post comment: (No text in comment body / Can you post without logging in?)
+- [x] Error handling: Bad url
+- [x] Error handling: Nonexistent article id in url
+- [x] Well named components
+- [x] Functional components used where possible
+- [x] Minimal state - don't hold derivable data in state
+- [x] Set state correctly, using previous state where possible
+- [x] Handle asynchronicity clearly (i.e. isLoading pattern)
+- [x] `node_modules` git ignored
+
+## Things you could improve
+
+Here is some feedback of things that could make it even better before sending to hiring partners - the ones marked 'need' should be done before sending it in applications, the rest are just things that would be good to implement to improve it.
+
+### Chores
+
+- [ ] **Need:** README: has a link to the deployed version
+- [ ] **Need:** README: provides general info about your app
+- [ ] **Need:** README: includes links to your back end repo
+- [ ] **Need:** README: specifies the minimum version of Node required to run locally (check your Node version, `node --version` and use the major version that you are on)
+- [ ] **Need:** README: has clear instructions on how to run your project locally (`git clone <repo-url>, cd ...`)
+- [ ] **Need:** Remove all comments/console.logs when finished
+- [ ] Remove unnecessary files (e.g. App.test.js)
+- [ ] Be consistent at destructuring from props etc
+
+### Error handling:
+
+- [ ] **Need:** Bad topic slug in url is handled BUT when going back to valid topic, error still remains
+- [ ] **Need:** Make sure to error handle all the api requests - you're missing some error handling in Nav, CommentAdder for example
+- [ ] Could do with some more left margins on the error page
+
+### HTML tags/accessibility
+
+- [ ] **Need:** There's some guidelines of how header tags (e.g. h1, h2, h3) should to be used:  
+       - [ ] there should only ever be one h1 (probably the one in your header) which mean you should choose a different heading tag for the title in your ArticleById.  
+       - [ ] they should always be used in decreasing order so that screenreaders know the importance of things on the page. Be careful not to jump straight for a heading tag for the styling that comes with it - go through your heading tags and consider if they're decreasing correctly
+- [ ] **Need:** Whenever you use a `ul`, it should be the wrapper around all the list items meaning only have `li`s as its direct children. In CommentsList the CommentAdder should not be inside the `ul` tag and each CommentCard should be just an `li` rather than its own `ul`. Similarly each ArticleCard should be an `li` instead of an `article` :)
+- [ ] **Need:** You've wrapped your ArticleList in a `main` tag which is great! Because `main` should wrap around the main content of that page. However, when on /article/:id, the `main` tag is around just the comments list rather than the single ArticleById (which I'd say is the main content of the page).
+
+### General Code
+
+- [ ] You've got two very similar methods for handlingVote in VoteHandler (up vs down). What is the only difference between these two? Try and make just one reusable handleVote method.
+- [ ] Are you using the /articles/:id/comments route anymore? I couldn't find a Link to it in the hosted version, if no you can delete this from your Router :)
+- [ ] You aren't using the username that's in state of CommentAdder - you can delete this as you're (correctly) reading the value from props
+
+### Styling
+
+- [ ] **Need:** Responsive - check whether the comment box fits the screen, for some mobiles sizes it went too far right for me?
+- [ ] I'd change default colour for clicked/unclicked links - will automatiucally make your page feel nicer :)
+- [ ] Add margins on the left so article isn't right up against the side
