@@ -198,10 +198,12 @@ a:hover {
 
 .comment-box {
   grid-area: comment-box;
+  margin-left: 50px;
 }
 
 .submit-comment {
   grid-area: submit-comment;
+  margin-right: 100px;
 }
 
 .submit-comment:hover {
