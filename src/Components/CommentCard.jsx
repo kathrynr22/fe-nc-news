@@ -13,8 +13,8 @@ const CommentCard = ({
   return (
     <article>
       <ul>
-        <li>
-          <p>
+        <li className="comments">
+          <p className="author-date">
             {author} {new Date(created_at).toLocaleString()}
           </p>
           <p>{body}</p>

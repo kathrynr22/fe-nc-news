@@ -39,8 +39,9 @@ class VoteHandler extends Component {
     const { votes, article_id, comment_id } = this.props;
     return (
       <>
-        <p>Votes: {votes + inc_votes} </p>
+        <p className="votes">Votes: {votes + inc_votes} </p>
         <button
+          className="vote-button"
           onClick={() => this.handleVoteChange(1, article_id, comment_id)}
           disabled={inc_votes > 0}
         >
@@ -49,6 +50,7 @@ class VoteHandler extends Component {
           </span>
         </button>
         <button
+          className="vote-button"
           onClick={() => this.handleVoteChange(-1, article_id, comment_id)}
           disabled={inc_votes < 0}
         >

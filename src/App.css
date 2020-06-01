@@ -53,6 +53,15 @@ header {
   background-color: lightgray;
 }
 
+.comments {
+  list-style: none;
+  border: solid;
+}
+
+.author-date {
+  text-align: right;
+}
+
 .topic-header {
   font-family: monospace;
   background-color: lightgray;
@@ -119,4 +128,27 @@ a:hover {
   color: #07090a;
   border: 3px solid darkred;
   font-family: monospace;
+}
+
+/* .votes {
+  text-align: right;
+}
+
+.vote-button {
+  text-align: right;
+  position: fixed;
+  right: 10;
+} */
+
+.vote-button :hover {
+  cursor: pointer;
+}
+
+.sort-dropdown :hover {
+  cursor: pointer;
+}
+
+.submit-comment :hover {
+  cursor: pointer;
+  background: red;
 }
