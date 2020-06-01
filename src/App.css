@@ -41,12 +41,16 @@ header {
   font-size: smaller;
 }
 
-main {
+.article-list {
+  background-color: gainsboro;
+}
+
+.article-by-id {
   background-color: gainsboro;
 }
 
 .comments-list {
-  background-color: red;
+  background-color: lightgray;
 }
 
 .topic-header {
@@ -104,4 +108,15 @@ a:visited {
 /* mouse over link */
 a:hover {
   color: rgb(233, 62, 10);
+}
+
+.comment-box {
+  width: 97%;
+  height: 100px;
+  padding: 10px;
+  background-color: lightgray;
+  font: 1.4em/1.6em cursive;
+  color: #07090a;
+  border: 3px solid darkred;
+  font-family: monospace;
 }

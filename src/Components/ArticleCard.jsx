@@ -18,11 +18,11 @@ const ArticleCard = ({
       <h2 className="title">{title}</h2>
       <p>
         {" "}
-        by {author} published on {""}
+        by {author} {""}
         {new Date(created_at).toLocaleString()}
       </p>
-      Vote Count: {votes}
-      <p>Comment Count: {comment_count}</p>
+      {votes} votes
+      <p> 🗣{comment_count} comments</p>
       <Link to={`/articles/${article_id}`} className="readmore">
         Read more
       </Link>

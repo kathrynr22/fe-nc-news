@@ -30,16 +30,18 @@ class ArticleById extends Component {
     if (err) return <ErrorHandler msg={err} />;
 
     return (
-      <article>
-        <h2>Topic: {topic.charAt(0).toUpperCase() + topic.slice(1)}</h2>
-        <h2>{title}</h2>
-        <h3>
-          Id:{article_id} Written by {author} on{" "}
-          {new Date(created_at).toLocaleString()}
-        </h3>
+      <article className="article-by-id">
+        <h2 className="topic-header">
+          {" "}
+          {topic.charAt(0).toUpperCase() + topic.slice(1)}
+        </h2>
+        <h2 className="title">{title}</h2>
+        <p>
+          by {author} {new Date(created_at).toLocaleString()}
+        </p>
         <p>{body}</p>
         <VoteHandler votes={votes} article_id={article_id} />{" "}
-        <h3>Comment Count: {comment_count}</h3>
+        <p>🗣{comment_count} comments</p>
         <CommentsList
           article_id={this.props.article_id}
           username={this.props.username}

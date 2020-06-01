@@ -41,6 +41,7 @@ class CommentAdder extends Component {
     return (
       <form onSubmit={this.handleSubmitForm}>
         <textarea
+          className="comment-box"
           onChange={this.handleInputChange}
           value={body}
           rows="10"

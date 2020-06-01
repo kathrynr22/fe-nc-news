@@ -17,7 +17,7 @@ class ArticlesList extends Component {
     if (isLoading) return <Loader />;
     if (err) return <ErrorHandler msg={err} />;
     return (
-      <main>
+      <main className="article-list">
         <SortButton handleSort={this.handleSort} />
         <ul>
           {this.state.allArticles.map((article) => {
