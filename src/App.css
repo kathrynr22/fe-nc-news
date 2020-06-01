@@ -4,7 +4,8 @@
 
 .nav {
   grid-area: nav;
-  background-color: brown;
+
+  background-color: darkgray;
   opacity: 0.8;
   font-weight: bolder;
   font-size: large;
@@ -28,8 +29,9 @@ footer {
 
 header {
   grid-area: header;
-  background-color: lightgray;
-  color: darkred;
+  background-color: darkred;
+  opacity: 0.8;
+  color: lightgray;
   text-align: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -74,6 +76,32 @@ main {
   opacity: 1;
 }
 
-.home-link :hover {
-  background-color: chartreuse;
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+Track ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+a:link {
+  color: blue;
+}
+
+/* visited link */
+a:visited {
+  color: rgb(3, 35, 36);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(233, 62, 10);
 }
