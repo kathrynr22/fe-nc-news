@@ -11,7 +11,7 @@ const ArticleCard = ({
   comment_count,
 }) => {
   return (
-    <article>
+    <article className="article-card">
       <h2 className="topic-header">
         {topic.charAt(0).toUpperCase() + topic.slice(1)}
       </h2>

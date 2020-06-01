@@ -17,25 +17,23 @@ class CommentsList extends Component {
     if (err) return <ErrorHandler msg={err} />;
 
     return (
-      <main className="comments-list">
+      <ul className="comments-list">
         <CommentAdder
           username={this.props.username}
           article_id={this.props.article_id}
           addCommentToState={this.addCommentToState}
         />
-        <ul>
-          {this.state.commentsByArticleId.map((comment) => {
-            return (
-              <CommentCard
-                key={comment.comment_id}
-                {...comment}
-                username={this.props.username}
-                deleteComment={this.deleteComment}
-              />
-            );
-          })}
-        </ul>
-      </main>
+        {this.state.commentsByArticleId.map((comment) => {
+          return (
+            <CommentCard
+              key={comment.comment_id}
+              {...comment}
+              username={this.props.username}
+              deleteComment={this.deleteComment}
+            />
+          );
+        })}
+      </ul>
     );
   }
 

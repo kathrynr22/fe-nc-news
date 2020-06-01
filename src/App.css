@@ -43,6 +43,12 @@ header {
 
 .article-list {
   background-color: gainsboro;
+  text-align: center;
+}
+
+.article-card {
+  font-family: monospace;
+  font-size: larger;
 }
 
 .article-by-id {
@@ -56,6 +62,7 @@ header {
 .comments {
   list-style: none;
   border: solid;
+  margin-right: 90px;
 }
 
 .author-date {
@@ -64,6 +71,7 @@ header {
 
 .topic-header {
   font-family: monospace;
+
   background-color: lightgray;
   color: darkred;
   text-align: right;
@@ -71,21 +79,22 @@ header {
 
 .title {
   font-family: monospace;
+  font-size: 20px;
 }
 
 .readmore {
   font-weight: bold;
 }
 
-/* .topic-name {
+.topic-name {
   font-weight: bolder;
-  font-weight: 800;
+
   opacity: 1;
-} */
+}
 
 .home-link {
   font-weight: bolder;
-  font-weight: 800;
+
   opacity: 1;
 }
 
@@ -120,14 +129,16 @@ a:hover {
 }
 
 .comment-box {
-  width: 97%;
+  /* width: 97%; */
   height: 100px;
-  padding: 10px;
+  justify-items: center;
   background-color: lightgray;
   font: 1.4em/1.6em cursive;
   color: #07090a;
   border: 3px solid darkred;
   font-family: monospace;
+  position: relative;
+  left: 190px;
 }
 
 /* .votes {
@@ -148,7 +159,20 @@ a:hover {
   cursor: pointer;
 }
 
-.submit-comment :hover {
+.sort-dropdown {
+  margin: 10px;
+  position: relative;
+  left: 380px;
+}
+
+#submit-comment {
+  margin: 10px;
+  position: relative;
+  left: 725px;
+}
+
+/* not sure why this isnt working */
+#submit-comment :hover {
   cursor: pointer;
-  background: red;
+  background-color: seagreen;
 }

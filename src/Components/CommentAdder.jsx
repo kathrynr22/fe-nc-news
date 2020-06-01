@@ -51,7 +51,7 @@ class CommentAdder extends Component {
           required
         />
 
-        <button className="submit-comment">Submit Comment</button>
+        <button id="submit-comment">Submit Comment</button>
       </form>
     );
   }
