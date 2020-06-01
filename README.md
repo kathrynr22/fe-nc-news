@@ -8,7 +8,7 @@ Each article has a rating which can be up or down voted by a registered user.
 
 Users can also add comments about an article. Comments can also be up or down voted. A user can also delete their comments should they wish.
 
-You can view a live version here https://5ed4b16577d227cb713798e0--suspicious-turing-cb7af5.netlify.app/
+You can view a live version here https://5ed4ff0f1c8448837c327df0--suspicious-turing-cb7af5.netlify.app/
 
 The backend project can be found here https://github.com/kathrynr22/be-nc-news
 

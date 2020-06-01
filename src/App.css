@@ -1,9 +1,6 @@
 .App {
   text-align: center;
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
+  overflow: hidden;
 }
 
 .nav {
@@ -47,7 +44,7 @@ header {
 
 .article-list {
   background-color: gainsboro;
-
+  overflow: hidden;
   text-align: center;
 }
 
@@ -138,9 +135,9 @@ a:hover {
   color: rgb(233, 62, 10);
 }
 
-.comment-box {
+/* .comment-box {
   /* width: 97%; */
-  width: 50%;
+/* width: 50%;
   height: 200px;
   justify-items: center;
   background-color: lightgray;
@@ -150,7 +147,8 @@ a:hover {
   font-family: monospace;
   position: relative;
   left: 300px;
-}
+} */
+*/
 
 /* .votes {
   text-align: right;
@@ -173,17 +171,33 @@ a:hover {
 .sort-dropdown {
   margin: 10px;
   position: relative;
-  left: 380px;
+  left: 625px;
 }
 
-#submit-comment {
+/* #submit-comment {
   margin: 10px;
   position: relative;
   left: 465px;
+} */
+
+.comment-adder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px auto;
+  grid-template-areas:
+    "comment-box comment-box submit-comment"
+    "comment-box comment-box submit-comment";
 }
 
-/* not sure why this isnt working */
-#submit-comment :hover {
+.comment-box {
+  grid-area: comment-box;
+}
+
+.submit-comment {
+  grid-area: submit-comment;
+}
+
+.submit-comment:hover {
   cursor: pointer;
-  background-color: seagreen;
+  background-color: darkred;
 }

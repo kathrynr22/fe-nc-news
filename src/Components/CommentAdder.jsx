@@ -39,7 +39,7 @@ class CommentAdder extends Component {
     const { body } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmitForm}>
+      <form onSubmit={this.handleSubmitForm} className="comment-adder">
         <textarea
           className="comment-box"
           onChange={this.handleInputChange}
@@ -51,7 +51,7 @@ class CommentAdder extends Component {
           required
         />
 
-        <button id="submit-comment">Submit Comment</button>
+        <button className="submit-comment">Submit Comment</button>
       </form>
     );
   }
