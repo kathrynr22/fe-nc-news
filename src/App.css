@@ -46,6 +46,7 @@ header {
   background-color: gainsboro;
   overflow: hidden;
   text-align: center;
+  padding: 0;
 }
 
 .article-card {
@@ -57,6 +58,10 @@ header {
 
 .article-by-id {
   background-color: gainsboro;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .comments-list {
@@ -170,9 +175,10 @@ a:hover {
 }
 
 .sort-dropdown {
-  margin: 10px;
+  /* margin: 10px;
   position: relative;
-  left: 625px;
+  left: 625px; */
+  background-color: gainsboro;
 }
 
 /* #submit-comment {

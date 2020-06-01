@@ -4,7 +4,6 @@ import * as api from "../Utils/api";
 
 class CommentAdder extends Component {
   state = {
-    username: "",
     body: "",
     err: "",
   };
@@ -28,7 +27,7 @@ class CommentAdder extends Component {
       .postComment(article_id, username, body)
       .then((postedComment) => {
         this.props.addCommentToState(postedComment);
-        this.setState({ username: "", body: "" });
+        this.setState({ body: "" });
       })
       .catch((err) => {
         this.setState({ err: err.response.data.msg, isLoading: false });
