@@ -11,7 +11,7 @@ const ArticleCard = ({
   comment_count,
 }) => {
   return (
-    <article className="article-card">
+    <li className="article-card">
       <h2 className="topic-header">
         {topic.charAt(0).toUpperCase() + topic.slice(1)}
       </h2>
@@ -26,7 +26,7 @@ const ArticleCard = ({
       <Link to={`/articles/${article_id}`} className="readmore">
         Read more
       </Link>
-    </article>
+    </li>
   );
 };
 

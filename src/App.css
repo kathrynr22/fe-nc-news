@@ -52,6 +52,7 @@ header {
   font-family: monospace;
   font-size: larger;
   border: solid darkgray;
+  list-style: none;
 }
 
 .article-by-id {
@@ -182,7 +183,7 @@ a:hover {
 
 .comment-adder {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-rows: 100px auto;
   grid-template-areas:
     "comment-box comment-box submit-comment"

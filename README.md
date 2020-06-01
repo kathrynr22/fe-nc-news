@@ -2,23 +2,25 @@
 
 Northcoders News (NC-News) is a news aggregation, web content rating, and discussion website similar to Reddit.
 
+It is built using React.
+
 It hosts articles which are divided into topics such as coding, football and cooking.
 
 Each article has a rating which can be up or down voted by a registered user.
 
 Users can also add comments about an article. Comments can also be up or down voted. A user can also delete their comments should they wish.
 
-You can view a live version here hhttps://suspicious-turing-cb7af5.netlify.app
+You can view a live version here https://suspicious-turing-cb7af5.netlify.app
 
-The backend project can be found here https://github.com/kathrynr22/be-nc-news
+The hosted version of the backend for this project can be found here https://kathryn-nc-news.herokuapp.com/api and the relevant git repo can be found here https://github.com/kathrynr22/be-nc-news
 
 ## Getting Started
 
 ### **Installation**
 
-Please note the minimum version of node you will need to run this applicaition is v13.8.0.
+Please note the minimum version of node you will need to run this application is v13.8.0.
 
-1. Fork and clone this repository
+1. Clone this repository
 
 `git clone https://github.com/kathrynr22/fe-nc-news`
 
@@ -33,8 +35,6 @@ Please note the minimum version of node you will need to run this applicaition i
 4. run the application
 
 `npm start`
-
-### Running the tests
 
 **Author**
 
