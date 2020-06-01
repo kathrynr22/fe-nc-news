@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 .nav {
@@ -43,12 +47,14 @@ header {
 
 .article-list {
   background-color: gainsboro;
+
   text-align: center;
 }
 
 .article-card {
   font-family: monospace;
   font-size: larger;
+  border: solid darkgray;
 }
 
 .article-by-id {
@@ -56,17 +62,21 @@ header {
 }
 
 .comments-list {
-  background-color: lightgray;
+  background-color: gainsboro;
 }
 
 .comments {
   list-style: none;
-  border: solid;
+  border: solid darkgray;
   margin-right: 90px;
 }
 
 .author-date {
   text-align: right;
+  font-family: monospace;
+
+  background-color: lightgray;
+  color: darkred;
 }
 
 .topic-header {
@@ -130,7 +140,8 @@ a:hover {
 
 .comment-box {
   /* width: 97%; */
-  height: 100px;
+  width: 50%;
+  height: 200px;
   justify-items: center;
   background-color: lightgray;
   font: 1.4em/1.6em cursive;
@@ -138,7 +149,7 @@ a:hover {
   border: 3px solid darkred;
   font-family: monospace;
   position: relative;
-  left: 190px;
+  left: 300px;
 }
 
 /* .votes {
@@ -168,7 +179,7 @@ a:hover {
 #submit-comment {
   margin: 10px;
   position: relative;
-  left: 725px;
+  left: 465px;
 }
 
 /* not sure why this isnt working */
